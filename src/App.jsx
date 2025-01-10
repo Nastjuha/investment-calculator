@@ -16,7 +16,9 @@ function App() {
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput, // spreading the previous state into this new returned object
-        [inputIdentifier]: newValue,
+        // When you get the value from an HTML input field (e.g., event.target.value), it is always a string,
+        // regardless of the type attribute of the input (type="number").
+        [inputIdentifier]: +newValue, //The + Operator Converts Strings to Numbers
       };
     });
   }
